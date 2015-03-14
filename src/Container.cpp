@@ -19,7 +19,7 @@ void Container::add_block(Block block)
     }
     else
     {
-        pos->second = pos->second ++;
+        pos->second = ++pos->second;
     }
     blocks.push_back(block);
 }
@@ -88,6 +88,8 @@ string Container::get_unnecessary_color()
             return it->first;
         }
     }
+    string s;
+    return s;
 }
 void Container::print_map()
 {
