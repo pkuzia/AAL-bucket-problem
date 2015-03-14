@@ -1,0 +1,32 @@
+# depslib dependency file v1.0
+1426281908 source:e:\studia\sem 5\aal\aal projekt\main.cpp
+	<iostream>
+	<stdlib.h>
+	"Block.h"
+	"Container.h"
+	<map>
+	"NaiveSolver.h"
+
+1426271400 source:e:\studia\sem 5\aal\aal projekt\src\block.cpp
+	"Block.h"
+
+1426271383 e:\studia\sem 5\aal\aal projekt\include\block.h
+	"string"
+	<iostream>
+
+1426336056 source:e:\studia\sem 5\aal\aal projekt\src\container.cpp
+	"Container.h"
+
+1426336030 e:\studia\sem 5\aal\aal projekt\include\container.h
+	"Block.h"
+	"vector"
+	<map>
+
+1426336997 source:e:\studia\sem 5\aal\aal projekt\src\naivesolver.cpp
+	"NaiveSolver.h"
+
+1426335643 e:\studia\sem 5\aal\aal projekt\include\naivesolver.h
+	<vector>
+	"Container.h"
+	<iostream>
+
