@@ -30,7 +30,7 @@
 	"Container.h"
 	<iostream>
 
-1426337201 source:e:\praca\git respositories\aal projekt\main.cpp
+1426531317 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
 	"Block.h"
@@ -42,12 +42,12 @@
 	"string"
 	<iostream>
 
-1426336030 e:\praca\git respositories\aal projekt\include\container.h
+1426529922 e:\praca\git respositories\aal projekt\include\container.h
 	"Block.h"
 	"vector"
 	<map>
 
-1426335643 e:\praca\git respositories\aal projekt\include\naivesolver.h
+1426530679 e:\praca\git respositories\aal projekt\include\naivesolver.h
 	<vector>
 	"Container.h"
 	<iostream>
@@ -55,9 +55,9 @@
 1426271400 source:e:\praca\git respositories\aal projekt\src\block.cpp
 	"Block.h"
 
-1426336056 source:e:\praca\git respositories\aal projekt\src\container.cpp
+1426529938 source:e:\praca\git respositories\aal projekt\src\container.cpp
 	"Container.h"
 
-1426336997 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
+1426531023 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
 	"NaiveSolver.h"
 

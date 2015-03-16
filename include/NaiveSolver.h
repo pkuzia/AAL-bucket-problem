@@ -14,7 +14,7 @@ class NaiveSolver
         void print_containers();
     protected:
     private:
-        void check_start_conditions(Container &container);
+        bool check_start_conditions(vector < Container > containers);
         bool check_container(Container &container);
         void move_to_right(Container &container,string color);
         bool solved();

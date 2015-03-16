@@ -20,8 +20,8 @@ int main()
     vector < Container > containers;
     Container nr1(4,1);
     Container nr2(2,2);
-    Container nr3(7,3);
-    Container nr4(1,4);
+    Container nr3(2,3);
+    Container nr4(7,4);
 
     Block blockGreen1("Zielony");
     Block blockGreen2("Zielony");
@@ -31,6 +31,7 @@ int main()
     Block blockRed1("Czerwony");
     Block blockRed2("Czerwony");
     Block blockRed3("Czerwony");
+    Block blockRed4("Czerwony");
 
     Block blockBlack1("Czarny");
     Block blockBlack2("Czarny");
@@ -52,6 +53,7 @@ int main()
     nr3.add_block(blockGreen1);
     nr3.add_block(blockGreen2);
     nr3.add_block(blockGreen3);
+    nr3.add_block(blockRed4);
 
     nr4.add_block(blockGreen4);
 

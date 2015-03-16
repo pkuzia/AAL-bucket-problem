@@ -10,9 +10,47 @@ NaiveSolver::~NaiveSolver()
 {
     //dtor
 }
-void NaiveSolver::check_start_conditions(Container &container)
+bool NaiveSolver::check_start_conditions(vector < Container > containers)
 {
-    
+    map<string,int> all_colors;
+    for( size_t i = 0; i < containers.size(); i++ )
+    {
+        vector < Block > blocks = containers[i].get_blocks();
+        map<string, int> info = containers[i].get_map();
+        for( size_t i = 0; i < blocks.size(); i++ )
+        {
+            Block block = blocks[i];
+            map<string,int>::iterator pos = all_colors.find(block.get_color());
+            if ( pos == all_colors.end() )
+            {
+                all_colors.insert(std::pair<string, int>(block.get_color(), 1));
+            }
+            else
+            {
+                pos->second = ++pos->second;
+            }
+        }
+    }
+    int n_k_colors  = 0;
+    for (map<string,int>::iterator it = all_colors.begin(); it != all_colors.end(); ++it)
+    {
+       if(it->second > containers.size())
+       {
+           return false;
+       }
+       if(it->second == containers.size())
+       {
+            n_k_colors++;
+       }
+    }
+    for( size_t i = 0; i < containers.size(); i++ )
+    {
+        if(n_k_colors > containers[i].get_size())
+        {
+            return false;
+        }
+    }
+    return true;
 }
 void NaiveSolver::print_containers()
 {
@@ -40,24 +78,33 @@ bool NaiveSolver::check_container(Container &container)
 }
 bool NaiveSolver::solve()
 {
-    
-    int steps = 0;
-    int i = containers.size();
-    i--; // wyrownanie indexow
-
-    while(!solved())
+    bool start = check_start_conditions(containers);
+    if(start)
     {
-        ++steps;
-        cout << "Krok " << steps << endl;
-        i = ( i + 1)% containers.size();
-        cout << "Sprawdzam pojemnik o indexie " << i <<endl;
-        if(!check_container(containers[i]))
+        int steps = 0;
+        int i = containers.size();
+        i--; // wyrownanie indexow
+
+        while(!solved())
         {
-             move_to_right(containers[i],containers[i].get_unnecessary_color());
+            ++steps;
+            cout << "Krok " << steps << endl;
+            i = ( i + 1)% containers.size();
+            cout << "Sprawdzam pojemnik o indexie " << i <<endl;
+            if(!check_container(containers[i]))
+            {
+                 move_to_right(containers[i],containers[i].get_unnecessary_color());
+            }
         }
+      print_containers();
+      return true;
     }
-    print_containers();
-    return true;
+    else
+    {
+        cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
+        return false;
+    }
+
 }
 void NaiveSolver::move_to_right(Container &container,string color) // Kontener z którego chcemy przeniesc na prawo
 {
