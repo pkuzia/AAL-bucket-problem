@@ -20,6 +20,7 @@ class Container
         int get_number_of_blocks();
         string get_first_color();
         string get_unnecessary_color();
+        bool check_start_conditions();
 
     protected:
     private:

@@ -10,6 +10,10 @@ NaiveSolver::~NaiveSolver()
 {
     //dtor
 }
+void NaiveSolver::check_start_conditions(Container &container)
+{
+    
+}
 void NaiveSolver::print_containers()
 {
     cout << "-------------------------------------------------------------------------------------------------" << endl;
@@ -36,9 +40,10 @@ bool NaiveSolver::check_container(Container &container)
 }
 bool NaiveSolver::solve()
 {
+    
     int steps = 0;
     int i = containers.size();
-    i--; // wyrównanie indexów
+    i--; // wyrownanie indexow
 
     while(!solved())
     {

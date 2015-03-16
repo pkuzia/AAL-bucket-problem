@@ -35,7 +35,14 @@ bool Container::accept()
     }
     return true;
 }
-
+bool Container::check_start_conditions()
+{
+    
+    for (map<string,int>::iterator it = info.begin(); it != info.end(); ++it)
+    {
+        cout << it->first << " => " << it->second << endl;
+    }
+}
 void Container::print_blocks()
 {
     cout << "------------------------------------------------------------" << endl;
