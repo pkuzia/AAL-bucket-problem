@@ -36,10 +36,12 @@
 		</Compiler>
 		<Unit filename="include/Block.h" />
 		<Unit filename="include/Container.h" />
+		<Unit filename="include/Creator.h" />
 		<Unit filename="include/NaiveSolver.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Block.cpp" />
 		<Unit filename="src/Container.cpp" />
+		<Unit filename="src/Creator.cpp" />
 		<Unit filename="src/NaiveSolver.cpp" />
 		<Extensions>
 			<code_completion />

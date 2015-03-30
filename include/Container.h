@@ -4,6 +4,7 @@
 #include "Block.h"
 #include "vector"
 #include <map>
+
 class Container
 {
     public:
@@ -22,6 +23,7 @@ class Container
         string get_unnecessary_color();
         vector < Block > get_blocks();
         map<string, int> get_map();
+        bool free_slot();
 
     protected:
     private:

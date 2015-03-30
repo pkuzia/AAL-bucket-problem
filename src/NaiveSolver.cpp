@@ -96,7 +96,7 @@ bool NaiveSolver::solve()
                  move_to_right(containers[i],containers[i].get_unnecessary_color());
             }
         }
-      print_containers();
+      //print_containers();
       return true;
     }
     else
@@ -114,7 +114,7 @@ void NaiveSolver::move_to_right(Container &container,string color) // Kontener z
     {
         index_next_container++;     // zgranie indexow
     }
-    cout<<" FUNKCJA MOVE : Przenosze " << color << " z pojemnika : " << container.get_index() << " do : " << index_next_container << endl;
+        cout<<" FUNKCJA MOVE : Przenosze " << color << " z pojemnika : " << container.get_index() << " do : " << index_next_container << endl;
     if(containers[index_next_container - 1].get_size() == containers[index_next_container - 1].get_number_of_blocks())
     {
         if(containers[index_next_container - 1].get_block_of_color(color) == 999)

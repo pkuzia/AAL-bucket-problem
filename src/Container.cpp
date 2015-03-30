@@ -108,5 +108,28 @@ void Container::print_map()
 }
 string Container::get_first_color()
 {
-    return blocks[0].get_color();
+    if(blocks.size() > 0)
+    {
+        return blocks[0].get_color();
+    }
+
+}
+
+bool Container::free_slot()
+{
+    int number_blocks = 0;
+
+    for (map<string,int>::iterator it = info.begin(); it != info.end(); ++it)
+    {
+        number_blocks += it->second;
+    }
+
+    if(number_blocks == size)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
 }
