@@ -15,7 +15,7 @@ Creator::~Creator()
 void Creator::read_file()
 {
   string line;
-  ifstream myfile ("colors.txt");
+  ifstream myfile ("/Users/przemyslawkuzia/Praca/XCode Projects/Projekt AAL/Projekt AAL/colors.txt");
 
   if (myfile.is_open())
   {
@@ -67,12 +67,12 @@ void Creator::random ()
 
 void Creator::average_fill(double value)
 {
-    int number_containers = 100;//rand()%100;
+    int number_containers = 30;//rand()%100;
     //cout << "Liczba kontenerow :" << number_containers << endl;
 
     for(int i = 1; i<= number_containers ; i++)
     {
-        int size_container = rand()%20 + 1;
+        int size_container = rand()%30 + 1;
         Container container(size_container,i);
         containers.push_back(container);
 
@@ -80,13 +80,11 @@ void Creator::average_fill(double value)
         {
             //cout << (double)containers[i-1].get_number_of_blocks()/(double)containers[i-1].get_size() << " :: " << value << endl ;
             int color_id = rand()%20;
+            //cout << colors.find(color_id)->second << endl;
             Block block(colors.find(color_id)->second);
             containers[i-1].add_block(block);
         }
     }
-
-
-
 }
 
 map<int, string> Creator::get_colors()

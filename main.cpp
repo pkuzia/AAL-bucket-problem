@@ -59,7 +59,8 @@ int main()
 
     Creator creator;
     creator.read_file();
-    creator.average_fill(0.89);
+    //creator.print_colors();
+    creator.average_fill(0.80);
     //creator.print_colors();
     vector < Container > containers;
 
@@ -69,7 +70,7 @@ int main()
 
     //solv.print_containers();
 
-    solv.solve();
+    solv.solve_right_method();
 
     //solv.print_containers();
 

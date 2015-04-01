@@ -10,13 +10,16 @@ class NaiveSolver
     public:
         NaiveSolver(vector < Container > content);
         virtual ~NaiveSolver();
-        bool solve();
+        bool solve_right_method();
         void print_containers();
+        bool solve_random_method();
     protected:
     private:
         bool check_start_conditions(vector < Container > containers);
         bool check_container(Container &container);
         void move_to_right(Container &container,string color);
+        void move_to_left(Container &container,string color);
+        void random_move(Container &container);
         bool solved();
         vector < Container > containers;
 };

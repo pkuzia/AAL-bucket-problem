@@ -59,7 +59,7 @@ int Container::get_block_of_color(string color)
     {
         if(blocks[i].get_color() == color)
         {
-            return i;
+            return (int)i;
         }
     }
     return 999; // ERROR
@@ -74,7 +74,7 @@ int Container::get_size()
 }
 int Container::get_number_of_blocks()
 {
-    return blocks.size();
+    return (int)blocks.size();
 }
 void Container::delete_block(int index)
 {
@@ -112,7 +112,7 @@ string Container::get_first_color()
     {
         return blocks[0].get_color();
     }
-
+    return "error";
 }
 
 bool Container::free_slot()
@@ -132,4 +132,11 @@ bool Container::free_slot()
     {
         return true;
     }
+}
+
+string Container::get_random_color()
+{
+    int index_block = rand() % blocks.size();
+    return blocks[index_block].get_color();
+    
 }

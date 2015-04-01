@@ -24,6 +24,7 @@ class Container
         vector < Block > get_blocks();
         map<string, int> get_map();
         bool free_slot();
+        string get_random_color();
 
     protected:
     private:
