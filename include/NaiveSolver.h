@@ -13,6 +13,7 @@ class NaiveSolver
         bool solve_right_method();
         void print_containers();
         bool solve_random_method();
+        bool optimal_method();
     protected:
     private:
         bool check_start_conditions(vector < Container > containers);

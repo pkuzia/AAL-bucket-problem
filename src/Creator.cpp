@@ -67,12 +67,12 @@ void Creator::random ()
 
 void Creator::average_fill(double value)
 {
-    int number_containers = 30;//rand()%100;
+    int number_containers = 80;//rand()%100;
     //cout << "Liczba kontenerow :" << number_containers << endl;
 
     for(int i = 1; i<= number_containers ; i++)
     {
-        int size_container = rand()%30 + 1;
+        int size_container = rand()%10 + 1;
         Container container(size_container,i);
         containers.push_back(container);
 

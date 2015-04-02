@@ -88,7 +88,7 @@ bool NaiveSolver::solve_right_method()
         while(!solved())
         {
             ++steps;
-            cout << "Krok " << steps << endl;
+            //cout << "Krok " << steps << endl;
             i = ( i + 1)% containers.size();
             //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
             if(!check_container(containers[i]))
@@ -97,7 +97,8 @@ bool NaiveSolver::solve_right_method()
             }
             //print_containers();
         }
-      print_containers();
+      //print_containers();
+      cout << "Krok " << steps << endl;
       return true;
     }
     else
@@ -106,6 +107,59 @@ bool NaiveSolver::solve_right_method()
         return false;
     }
 
+}
+
+
+bool NaiveSolver::optimal_method()
+{
+    bool start = check_start_conditions(containers);
+    if(start)
+    {
+        int steps = 0;
+        int i = (int)containers.size();
+        i--; // wyrownanie indexow
+        
+        while(!solved())
+        {
+            ++steps;
+            //cout << "Krok " << steps << endl;
+            i = ( i + 1)% containers.size();
+            //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
+        
+            if(!check_container(containers[i]))
+            {
+                int index = i;
+                
+                if(i == 0 )
+                {
+                    index = (int)containers.size() - 1;
+                }
+                else
+                {
+                    --index;
+                }
+                
+                if(containers[index].get_block_of_color(containers[i].get_unnecessary_color()) == 999 && containers[index].free_slot())
+                {
+                    move_to_left(containers[i], containers[i].get_unnecessary_color());
+                }
+                else
+                {
+                    move_to_right(containers[i],containers[i].get_unnecessary_color());
+                }
+            }
+            //print_containers();
+        }
+        cout << "Krok " << steps << endl;
+        //print_containers();
+        return true;
+    }
+    else
+    {
+        cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
+        return false;
+    }
+    
 }
 void NaiveSolver::move_to_right(Container &container,string color) // Kontener z ktorego chcemy przeniesc na prawo
 {
