@@ -4,6 +4,7 @@
 #include <vector>
 #include "Container.h"
 #include <iostream>
+#include <Tree.h>
 
 class NaiveSolver
 {
@@ -14,6 +15,7 @@ class NaiveSolver
         void print_containers();
         bool solve_random_method();
         bool optimal_method();
+        void build_tree();
     protected:
     private:
         bool check_start_conditions(vector < Container > containers);
@@ -22,6 +24,7 @@ class NaiveSolver
         void move_to_left(Container &container,string color);
         void random_move(Container &container);
         bool solved();
+
         vector < Container > containers;
 };
 

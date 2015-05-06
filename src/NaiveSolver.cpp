@@ -118,18 +118,18 @@ bool NaiveSolver::optimal_method()
         int steps = 0;
         int i = (int)containers.size();
         i--; // wyrownanie indexow
-        
+
         while(!solved())
         {
             ++steps;
             //cout << "Krok " << steps << endl;
             i = ( i + 1)% containers.size();
             //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
-        
+
             if(!check_container(containers[i]))
             {
                 int index = i;
-                
+
                 if(i == 0 )
                 {
                     index = (int)containers.size() - 1;
@@ -138,7 +138,7 @@ bool NaiveSolver::optimal_method()
                 {
                     --index;
                 }
-                
+
                 if(containers[index].get_block_of_color(containers[i].get_unnecessary_color()) == 999 && containers[index].free_slot())
                 {
                     move_to_left(containers[i], containers[i].get_unnecessary_color());
@@ -159,7 +159,7 @@ bool NaiveSolver::optimal_method()
         cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
         return false;
     }
-    
+
 }
 void NaiveSolver::move_to_right(Container &container,string color) // Kontener z ktorego chcemy przeniesc na prawo
 {
@@ -224,7 +224,7 @@ void NaiveSolver::random_move(Container &container) // losowy klocek z podaneo k
     string random_color = container.get_random_color();
     //cout << " Wylosowany kolor to : " << random_color << endl;
     int left_or_right = rand() % 2;
-    
+
     if(left_or_right == 1 )
     {
         move_to_right(container, random_color);
@@ -235,6 +235,12 @@ void NaiveSolver::random_move(Container &container) // losowy klocek z podaneo k
     }
 }
 
+void NaiveSolver::build_tree()
+{
+    Tree tree(containers);
+    tree.build();
+}
+
 bool NaiveSolver::solve_random_method()
 {
     bool start = check_start_conditions(containers);
@@ -243,7 +249,7 @@ bool NaiveSolver::solve_random_method()
         int steps = 0;
         int i = (int)containers.size();
         i--; // wyrownanie indexow
-        
+
         while(!solved())
         {
             ++steps;
@@ -263,5 +269,5 @@ bool NaiveSolver::solve_random_method()
         cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
         return false;
     }
-    
+
 }

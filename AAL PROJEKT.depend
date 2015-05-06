@@ -30,7 +30,7 @@
 	"Container.h"
 	<iostream>
 
-1427744733 source:e:\praca\git respositories\aal projekt\main.cpp
+1430916307 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
 	"Block.h"
@@ -45,26 +45,28 @@
 	"string"
 	<iostream>
 
-1427474313 e:\praca\git respositories\aal projekt\include\container.h
+1430910893 e:\praca\git respositories\aal projekt\include\container.h
 	"Block.h"
 	"vector"
 	<map>
+	<cstdlib>
 
-1426534279 e:\praca\git respositories\aal projekt\include\naivesolver.h
+1430916231 e:\praca\git respositories\aal projekt\include\naivesolver.h
 	<vector>
 	"Container.h"
 	<iostream>
+	<Tree.h>
 
 1426275000 source:e:\praca\git respositories\aal projekt\src\block.cpp
 	"Block.h"
 
-1427476980 source:e:\praca\git respositories\aal projekt\src\container.cpp
+1427893277 source:e:\praca\git respositories\aal projekt\src\container.cpp
 	"Container.h"
 
-1427744654 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
+1430916350 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
 	"NaiveSolver.h"
 
-1427744772 source:e:\praca\git respositories\aal projekt\src\creator.cpp
+1428161165 source:e:\praca\git respositories\aal projekt\src\creator.cpp
 	"Creator.h"
 	<cstdlib>
 	<fstream>
@@ -77,4 +79,34 @@
 	"vector"
 	"string"
 	"Block.h"
+
+1430911464 source:e:\praca\git respositories\aal projekt\src\containers.cpp
+	"Containers.h"
+
+1430911463 e:\praca\git respositories\aal projekt\include\containers.h
+	<Container.h>
+	<vector>
+
+1430916859 source:e:\praca\git respositories\aal projekt\src\node.cpp
+	"Node.h"
+
+1430918359 e:\praca\git respositories\aal projekt\include\node.h
+	<Container.h>
+	<Node.h>
+	<vector>
+	"Block.h"
+
+1430911517 source:e:\praca\git respositories\aal projekt\src\root.cpp
+	"Root.h"
+
+1430912223 e:\praca\git respositories\aal projekt\include\root.h
+	<Containers.h>
+	<Node.h>
+
+1430916374 source:e:\praca\git respositories\aal projekt\src\tree.cpp
+	<Tree.h>
+
+1430916339 e:\praca\git respositories\aal projekt\include\tree.h
+	<Node.h>
+	<vector>
 
