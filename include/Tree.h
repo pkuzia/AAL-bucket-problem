@@ -8,6 +8,7 @@ class Tree
     public:
         Tree(vector <Container> cont);
         void build();
+        void solve();
     protected:
     private:
         Node *root;

@@ -3,7 +3,7 @@
 Node::Node(vector <Container> cont, Node* previous)
 {
     containers = cont;
-    prev = previous;
+    parent = previous;
 
 }
 void Node::build()
@@ -79,29 +79,14 @@ bool Node::compare(Node & node)
     container_two = node.get_containers();
     for(size_t i = 0; i< containers.size(); i++)
     {
-        bool exist_the_same = false;
-        for(size_t j = 0; j< container_two.size(); j++)
-        {
-//            cout << "Mapa 1 :" << endl;
-//            containers[i].print_map();
-//            cout << "Mapa 2 :" << endl;
-//            container_two[j].print_map();
-
-            if(containers[i].compare(container_two[j]))
-            {
-                exist_the_same = true;
-                //cout << "Takie same" << endl;
-            }
-            //cout << "------------------" << endl << endl;
-        }
-        if(!exist_the_same)
+        if(!containers[i].compare(container_two[i]))
         {
             return false;
         }
     }
     return true;
 }
-void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
+void Node::delete_duplicates() // zakÂ³adamy, Â¿e musi posiadac juÂ¿ gaÂ³ezie.
 {
     int i = 0;
     vector <int> nodes_to_delete;
@@ -113,30 +98,109 @@ void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
              if((*it)->compare(*(*iter)) && i != j)
              {
                 cout << i << " i " << j << " takie same." << endl;
-                nodes_to_delete.push_back(j);
+                if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), j) == nodes_to_delete.end())
+                {
+                    if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), i) ==nodes_to_delete.end())
+                    {
+                        cout << "Push " << j << endl;
+                        nodes_to_delete.push_back(j);
+                    }
+                }
              }
             j++;
          }
     i++;
     }
-    sort(nodes_to_delete.begin(), nodes_to_delete.end());
-    nodes_to_delete.erase(std::unique(nodes_to_delete.begin(), nodes_to_delete.end()), nodes_to_delete.end());
-    int del = 0;
+    sort(nodes_to_delete.begin(), nodes_to_delete.end(), std::greater<int>());
     for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
     {
-        cout << "Usuwam " << *it - del<< endl;
-        nodes.erase (nodes.begin()+(*it) - del);
-        del++;
+        cout << "Usuwam " << *it << endl;
+        nodes.erase (nodes.begin()+(*it) );
     }
+}
 
-//    nodes[2]->print_node();
-//    nodes[0]->print_node();
-//
-//    if(nodes[0]->compare(*nodes[2]))
-//    {
-//       cout << "Takie same." << endl;
-//    }
+vector < Node* > Node::get_nodes()
+{
+    return nodes;
+}
 
+Node* Node::get_left()
+{
+    Node * node = this;
+    while(node->get_nodes().size() != 0)
+    {
+        node = node->get_nodes()[0];
+    }
+    return node;
+
+}
+Node* Node::get_successor()
+{
+    Node * parentt = parent;
+    if(parentt == NULL)
+    {
+        return NULL;
+    }
+    int index = 0;
+    vector <Node *> children = parent->get_nodes();
+    for(vector<Node*>::iterator it = children.begin(); it != children.end(); ++it)
+    {
+        if(compare((*(*it))))
+        {
+            if(index == children.size()-1)
+            {
+                if(parentt->get_successor() == NULL)
+                {
+                    return NULL;
+                }
+                return parentt->get_successor()->get_nodes()[0];
+            }
+            return children[index +1];
+        }
+        index++;
+    }
+}
+
+void Node::build_level()
+{
+    for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+    {
+        cout << "build" << endl;
+        (*it)->build();
+        //(*it)->delete_duplicates();
+        (*it)->check_history();
+    }
+}
+Node * Node::get_parent()
+{
+    return parent;
+}
+void Node::check_history() // zakÅ‚adamy Å¼e wÄ™zeÅ‚ musi mieÄ‡ gaÅ‚Ä™zie.
+{
+    int index = 0;
+    vector <int> nodes_to_delete;
+    for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+    {
+        Node *par = parent;
+        while(par != NULL)
+        {
+            if((*it)->compare(*par))
+            {
+                cout << "Znalazlem w histori taka sama sytuacje." << endl;
+                cout << "Push " << index << endl;
+                nodes_to_delete.push_back(index);
+                break;
+            }
+            par = par->get_parent();
+        }
+        index++;
+    }
+    sort(nodes_to_delete.begin(), nodes_to_delete.end(), std::greater<int>());
+    for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
+    {
+        cout << "Usuwam " << *it << endl;
+        nodes.erase (nodes.begin()+(*it) );
+    }
 }
 void Node::print_node()
 {

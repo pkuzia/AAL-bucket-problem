@@ -239,6 +239,7 @@ void NaiveSolver::build_tree()
 {
     Tree tree(containers);
     tree.build();
+    //tree.solve();
 }
 
 bool NaiveSolver::solve_random_method()

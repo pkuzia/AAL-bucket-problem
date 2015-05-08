@@ -30,7 +30,7 @@
 	"Container.h"
 	<iostream>
 
-1431017751 source:e:\praca\git respositories\aal projekt\main.cpp
+1431022726 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
 	"Block.h"
@@ -63,7 +63,7 @@
 1431022301 source:e:\praca\git respositories\aal projekt\src\container.cpp
 	"Container.h"
 
-1430916350 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
+1431088532 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
 	"NaiveSolver.h"
 
 1428161165 source:e:\praca\git respositories\aal projekt\src\creator.cpp
@@ -87,10 +87,10 @@
 	<Container.h>
 	<vector>
 
-1431022529 source:e:\praca\git respositories\aal projekt\src\node.cpp
+1431092210 source:e:\praca\git respositories\aal projekt\src\node.cpp
 	"Node.h"
 
-1431016675 e:\praca\git respositories\aal projekt\include\node.h
+1431091553 e:\praca\git respositories\aal projekt\include\node.h
 	"Container.h"
 	"Node.h"
 	<vector>
@@ -104,10 +104,10 @@
 	<Containers.h>
 	<Node.h>
 
-1431022330 source:e:\praca\git respositories\aal projekt\src\tree.cpp
+1431092230 source:e:\praca\git respositories\aal projekt\src\tree.cpp
 	"Tree.h"
 
-1431004645 e:\praca\git respositories\aal projekt\include\tree.h
+1431086264 e:\praca\git respositories\aal projekt\include\tree.h
 	"Node.h"
 	<vector>
 
