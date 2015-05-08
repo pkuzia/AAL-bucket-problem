@@ -38,14 +38,12 @@ int main()
     Block blockBlue2("Niebieski");
 
     nr1.add_block(blockBlack1);
-    nr1.add_block(blockRed1);
-    nr1.add_block(blockRed2);
-    nr1.add_block(blockRed3);
 
     nr2.add_block(blockBlack2);
-    nr2.add_block(blockBlue1);
+    nr2.add_block(blockRed1);
 
-    nr3.add_block(blockBlue2);
+
+    nr3.add_block(blockBlack3);
     nr3.add_block(blockGreen1);
     nr3.add_block(blockGreen2);
     nr3.add_block(blockGreen3);

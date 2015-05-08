@@ -117,21 +117,40 @@ string Container::get_first_color()
 
 bool Container::compare(Container &cont)
 {
+    if(get_number_of_blocks() != cont.get_number_of_blocks())
+    {
+        return false;
+    }
+
     for (map<string,int>::iterator it = info.begin(); it != info.end(); ++it)
     {
-        string color = it -> first;
-        cout << "Sprawdzam kolor " << color << endl;
-        map<string,int> map = cont.get_map();
-        
-        for (map<string,int>::iterator it1 = info.begin(); it1 != info.end(); it1++)
+        if(it->second != 0)
         {
-            if(color == iter -> first)
+            string color = it -> first;
+            map<string,int> compare_map = cont.get_map();
+
+            bool is_color_exist = false;
+            for ( map<string,int>::iterator iter = compare_map.begin(); iter != compare_map.end(); iter++)
             {
-                if(it->second != iter->second)
+                if(info.size() != compare_map.size())
                 {
-                    cout << "Taki sam kolor, porownuje wartosci : " << it ->second << " i " << iter->second << endl;
                     return false;
                 }
+
+                //cout << "Porownuje " << color << " z " << iter -> first << endl;
+                if(color == iter -> first )
+                {
+                    is_color_exist = true;
+                    //cout << "Porownuje wartosci " << it->second << " z " << iter->second << endl;
+                    if(it->second != iter->second)
+                    {
+                        return false;
+                    }
+                }
+            }
+            if(!is_color_exist)
+            {
+                return false;
             }
         }
     }
@@ -162,5 +181,5 @@ string Container::get_random_color()
 {
     int index_block = rand() % blocks.size();
     return blocks[index_block].get_color();
-    
+
 }

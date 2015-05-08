@@ -40,6 +40,7 @@ void Node::build()
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
             }
+            newContainers = containers;
             if(newContainers[index_right].free_slot())
             {
                 string color = blocks[j].get_color();
@@ -62,6 +63,8 @@ void Node::print_containers(vector < Container > containers )
         {
             cout << blocks[j].get_color() << endl;
         }
+//        cout << "WYPISANIE MAPY" << endl;
+//        containers[i].print_map();
         cout << endl;
     }
 }
@@ -72,15 +75,68 @@ vector < Container > Node::get_containers()
 
 bool Node::compare(Node & node)
 {
-    for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+    vector <Container> container_two;
+    container_two = node.get_containers();
+    for(size_t i = 0; i< containers.size(); i++)
     {
-        
+        bool exist_the_same = false;
+        for(size_t j = 0; j< container_two.size(); j++)
+        {
+//            cout << "Mapa 1 :" << endl;
+//            containers[i].print_map();
+//            cout << "Mapa 2 :" << endl;
+//            container_two[j].print_map();
+
+            if(containers[i].compare(container_two[j]))
+            {
+                exist_the_same = true;
+                //cout << "Takie same" << endl;
+            }
+            //cout << "------------------" << endl << endl;
+        }
+        if(!exist_the_same)
+        {
+            return false;
+        }
     }
     return true;
 }
-void Node::delete_duplicates()
+void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
 {
-    
+    int i = 0;
+    vector <int> nodes_to_delete;
+    for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+    {
+        int j = 0;
+         for(vector<Node*>::iterator iter = nodes.begin(); iter != nodes.end(); ++iter)
+         {
+             if((*it)->compare(*(*iter)) && i != j)
+             {
+                cout << i << " i " << j << " takie same." << endl;
+                nodes_to_delete.push_back(j);
+             }
+            j++;
+         }
+    i++;
+    }
+    sort(nodes_to_delete.begin(), nodes_to_delete.end());
+    nodes_to_delete.erase(std::unique(nodes_to_delete.begin(), nodes_to_delete.end()), nodes_to_delete.end());
+    int del = 0;
+    for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
+    {
+        cout << "Usuwam " << *it - del<< endl;
+        nodes.erase (nodes.begin()+(*it) - del);
+        del++;
+    }
+
+//    nodes[2]->print_node();
+//    nodes[0]->print_node();
+//
+//    if(nodes[0]->compare(*nodes[2]))
+//    {
+//       cout << "Takie same." << endl;
+//    }
+
 }
 void Node::print_node()
 {
@@ -98,10 +154,4 @@ void Node::print_node()
         }
         i++;
     }
-    if(containers[0].compare(containers[1]))
-    {
-        cout << " 0 i 1 takie same" << endl;
-    }
-    
-    
 }

@@ -4,6 +4,7 @@
 #include "Node.h"
 #include <vector>
 #include "Block.h"
+#include <algorithm>
 
 class Node
 {
@@ -13,12 +14,13 @@ class Node
         void print_node();
         void print_containers( vector < Container > containers);
         vector < Container > get_containers();
+        void delete_duplicates();
     protected:
     private:
         vector <Container> containers;
         vector < Node* > nodes;
         Node *prev;
-        void delete_duplicates();
+
         bool compare(Node & node);
 };
 

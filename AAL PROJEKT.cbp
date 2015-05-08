@@ -36,7 +36,6 @@
 		</Compiler>
 		<Unit filename="include/Block.h" />
 		<Unit filename="include/Container.h" />
-		<Unit filename="include/Containers.h" />
 		<Unit filename="include/Creator.h" />
 		<Unit filename="include/NaiveSolver.h" />
 		<Unit filename="include/Node.h" />
