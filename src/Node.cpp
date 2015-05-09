@@ -8,6 +8,8 @@ Node::Node(vector <Container> cont, Node* previous)
 }
 void Node::build()
 {
+    cout << "Build " << endl;
+    int l = 0;
     for(size_t i = 0; i< containers.size(); i++)
     {
         vector < Block > blocks = containers[i].get_blocks();
@@ -39,6 +41,8 @@ void Node::build()
                 newContainers[i].delete_block(j);
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
+                l++;
+                cout << "Dodaje sytuacje nr " << l << endl;
             }
             newContainers = containers;
             if(newContainers[index_right].free_slot())
@@ -49,11 +53,23 @@ void Node::build()
                 newContainers[i].delete_block(j);
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
+                l++;
+                cout << "Dodaje sytuacje nr " << l << endl;
             }
         }
     }
 }
-
+bool Node::solved()
+{
+    for( size_t i = 0; i < containers.size(); i++ )
+    {
+        if(!containers[i].accept())
+        {
+            return false;
+        }
+    }
+    return true;
+}
 void Node::print_containers(vector < Container > containers )
 {
     for(size_t i = 0; i< containers.size(); i++)
@@ -167,7 +183,7 @@ void Node::build_level()
     {
         cout << "build" << endl;
         (*it)->build();
-        //(*it)->delete_duplicates();
+        (*it)->delete_duplicates();
         (*it)->check_history();
     }
 }

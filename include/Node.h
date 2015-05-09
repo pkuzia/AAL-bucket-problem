@@ -21,14 +21,14 @@ class Node
         Node* get_successor();
         vector < Node* > get_nodes();
         Node* get_left();
-        bool check_start_conditions(vector < Container > containers);
+        bool compare(Node & node);
+        bool solved();
     protected:
     private:
         vector <Container> containers;
         vector < Node* > nodes;
         Node *parent;
 
-        bool compare(Node & node);
 };
 
 #endif // NODE_H

@@ -15,14 +15,39 @@ void Tree::build()
 {
     root->build();
     root->delete_duplicates();
-    vector <Node*> nodes = root->get_nodes();
     Node* node = root;
+    cout << "-----------------------" << endl;
+    node->build_level();
     node = node->get_left();
     int i = 0;
+    //bool solved = false;
     while(node != NULL)
     {
-        node = node->get_successor();
+ //       node = node -> get_successor();
+//        node = root->get_left();
+        int k = 0;
+//        while(node != NULL)
+//        {
+            if(node->solved())
+            {
+                break;
+            }
+            cout <<"SPRAWDZAM " <<k << endl; k++;
+            node = node->get_successor();
+ //       }
+//
+//        node = root->get_left();
+//        k = 0;
+//        while(node != NULL)
+//        {
+//            node->build();
+//            node->delete_duplicates();
+//            node->check_history();
+//            cout <<"P2 " << k << endl; k++;
+//            node = node->get_successor();
+//        }
         cout << i << endl;
         ++i;
     }
+    //node->print_node();
 }

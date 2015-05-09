@@ -46,15 +46,16 @@ int main()
     nr3.add_block(blockBlack3);
     nr3.add_block(blockGreen1);
     nr3.add_block(blockGreen2);
-    nr3.add_block(blockGreen3);
-    nr3.add_block(blockRed4);
+    //nr3.add_block(blockGreen3);
+    //nr3.add_block(blockRed4);
 
-    nr4.add_block(blockGreen4);
+    //nr4.add_block(blockGreen4);
+    //nr4.add_block(blockBlack4);
 
     containers.push_back(nr1);
     containers.push_back(nr2);
     containers.push_back(nr3);
-    containers.push_back(nr4);
+   // containers.push_back(nr4);
 
 //    Creator creator;
 //    creator.read_file();
