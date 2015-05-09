@@ -16,7 +16,7 @@ int main()
     vector < Container > containers;
     Container nr1(4,1);
     Container nr2(2,2);
-    Container nr3(2,3);
+    Container nr3(2,5);
     Container nr4(7,4);
 
     Block blockGreen1("Zielony");
@@ -46,16 +46,18 @@ int main()
     nr3.add_block(blockBlack3);
     nr3.add_block(blockGreen1);
     nr3.add_block(blockGreen2);
-    //nr3.add_block(blockGreen3);
-    //nr3.add_block(blockRed4);
+    nr3.add_block(blockGreen3);
+    nr3.add_block(blockRed4);
 
-    //nr4.add_block(blockGreen4);
-    //nr4.add_block(blockBlack4);
+    nr4.add_block(blockGreen4);
+    nr4.add_block(blockBlack4);
+    nr4.add_block(blockRed2);
+    nr4.add_block(blockGreen2);
 
     containers.push_back(nr1);
     containers.push_back(nr2);
     containers.push_back(nr3);
-   // containers.push_back(nr4);
+    containers.push_back(nr4);
 
 //    Creator creator;
 //    creator.read_file();

@@ -175,6 +175,7 @@ Node* Node::get_successor()
         }
         index++;
     }
+    return NULL; // macbook
 }
 
 void Node::build_level()
