@@ -8,7 +8,7 @@ Node::Node(vector <Container> cont, Node* previous)
 }
 void Node::build()
 {
-    cout << "Build " << endl;
+    //cout << "Build " << endl;
     int l = 0;
     for(size_t i = 0; i< containers.size(); i++)
     {
@@ -42,7 +42,7 @@ void Node::build()
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
                 l++;
-                cout << "Dodaje sytuacje nr " << l << endl;
+                //cout << "Dodaje sytuacje nr " << l << endl;
             }
             newContainers = containers;
             if(newContainers[index_right].free_slot())
@@ -54,7 +54,7 @@ void Node::build()
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
                 l++;
-                cout << "Dodaje sytuacje nr " << l << endl;
+                //cout << "Dodaje sytuacje nr " << l << endl;
             }
         }
     }
@@ -113,12 +113,12 @@ void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
          {
              if((*it)->compare(*(*iter)) && i != j)
              {
-                cout << i << " i " << j << " takie same." << endl;
+                //cout << i << " i " << j << " takie same." << endl;
                 if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), j) == nodes_to_delete.end())
                 {
                     if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), i) ==nodes_to_delete.end())
                     {
-                        cout << "Push " << j << endl;
+                        //cout << "Push " << j << endl;
                         nodes_to_delete.push_back(j);
                     }
                 }
@@ -130,7 +130,7 @@ void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
     sort(nodes_to_delete.begin(), nodes_to_delete.end(), std::greater<int>());
     for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
     {
-        cout << "Usuwam " << *it << endl;
+        //cout << "Usuwam " << *it << endl;
         nodes.erase (nodes.begin()+(*it) );
     }
 }
@@ -182,7 +182,7 @@ void Node::build_level()
 {
     for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
     {
-        cout << "build" << endl;
+        //cout << "build" << endl;
         (*it)->build();
         (*it)->delete_duplicates();
         (*it)->check_history();
@@ -203,8 +203,8 @@ void Node::check_history() // zakładamy że węzeł musi mieć gałęzie.
         {
             if((*it)->compare(*par))
             {
-                cout << "Znalazlem w histori taka sama sytuacje." << endl;
-                cout << "Push " << index << endl;
+                //cout << "Znalazlem w histori taka sama sytuacje." << endl;
+                //cout << "Push " << index << endl;
                 nodes_to_delete.push_back(index);
                 break;
             }
@@ -215,7 +215,7 @@ void Node::check_history() // zakładamy że węzeł musi mieć gałęzie.
     sort(nodes_to_delete.begin(), nodes_to_delete.end(), std::greater<int>());
     for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
     {
-        cout << "Usuwam " << *it << endl;
+        //cout << "Usuwam " << *it << endl;
         nodes.erase (nodes.begin()+(*it) );
     }
 }

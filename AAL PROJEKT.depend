@@ -30,7 +30,7 @@
 	"Container.h"
 	<iostream>
 
-1431169422 source:e:\praca\git respositories\aal projekt\main.cpp
+1431178685 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
 	"Block.h"
@@ -87,7 +87,7 @@
 	<Container.h>
 	<vector>
 
-1431168399 source:e:\praca\git respositories\aal projekt\src\node.cpp
+1431178183 source:e:\praca\git respositories\aal projekt\src\node.cpp
 	"Node.h"
 
 1431168398 e:\praca\git respositories\aal projekt\include\node.h
@@ -104,7 +104,7 @@
 	<Containers.h>
 	<Node.h>
 
-1431170563 source:e:\praca\git respositories\aal projekt\src\tree.cpp
+1431178866 source:e:\praca\git respositories\aal projekt\src\tree.cpp
 	"Tree.h"
 
 1431086264 e:\praca\git respositories\aal projekt\include\tree.h

@@ -30,7 +30,7 @@ void Tree::build()
         {
             if(node->solved())
             {
-                cout << "Poprawne rozwiazanie" << endl;
+                cout << "Poprawne rozwiazanie, KROK: " << i << " Pojemnik nr: " << k << endl;
                 node -> print_node();
                 solved = true;
                 break;
@@ -49,10 +49,10 @@ void Tree::build()
             node->build();
             node->delete_duplicates();
             node->check_history();
-            cout <<"P2 " << k << endl; k++;
+            //cout <<"P2 " << k << endl; k++;
             node = node->get_successor();
         }
-        cout << i << endl;
+        //cout << i << endl;
         ++i;
     }
     //node->print_node();
