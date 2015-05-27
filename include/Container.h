@@ -27,6 +27,7 @@ class Container
         bool free_slot();
         string get_random_color();
         bool compare(Container &cont);
+        bool color_solved(string color);
 
     protected:
     private:

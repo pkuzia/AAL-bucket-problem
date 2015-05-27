@@ -115,6 +115,27 @@ string Container::get_first_color()
     return "error";
 }
 
+bool Container::color_solved(string color)
+{
+    map<string,int>::iterator pos = info.find(color);
+    if ( pos == info.end() )
+    {
+        return true;
+    }
+    else
+    {
+        if(pos -> second <= 1)
+        {
+            return true;
+        }
+        if(pos -> second > 1)
+        {
+            return false;
+        }
+    }
+    return false;
+}
+
 bool Container::compare(Container &cont)
 {
     if(get_number_of_blocks() != cont.get_number_of_blocks())

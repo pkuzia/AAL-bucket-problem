@@ -16,6 +16,9 @@ class NaiveSolver
         bool solve_random_method();
         bool optimal_method();
         void build_tree();
+        bool color_method();
+        map<string,int> get_colors();
+        bool color_solved(string color);    
     protected:
     private:
         bool check_start_conditions(vector < Container > containers);

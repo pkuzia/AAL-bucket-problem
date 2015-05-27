@@ -76,6 +76,101 @@ bool NaiveSolver::check_container(Container &container)
 {
     return container.accept();
 }
+
+map<string,int> NaiveSolver::get_colors()
+{
+    map<string,int> all_colors;
+    for( size_t i = 0; i < containers.size(); i++ )
+    {
+        vector < Block > blocks = containers[i].get_blocks();
+        map<string, int> info = containers[i].get_map();
+        for( size_t i = 0; i < blocks.size(); i++ )
+        {
+            Block block = blocks[i];
+            map<string,int>::iterator pos = all_colors.find(block.get_color());
+            if ( pos == all_colors.end() )
+            {
+                all_colors.insert(std::pair<string, int>(block.get_color(), 1));
+            }
+            else
+            {
+                pos->second = ++pos->second;
+            }
+        }
+    }
+    return all_colors;
+}
+
+bool NaiveSolver::color_solved(string color)
+{
+    for( size_t i = 0; i < containers.size(); i++ )
+    {
+        if(!containers[i].color_solved(color))
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool NaiveSolver::color_method()
+{
+    print_containers();
+    
+    map<string,int> colors = get_colors();
+    for (map<string,int>::iterator it = colors.begin(); it != colors.end(); ++it)
+    {
+        cout << it->first << " : " << it->second << endl;
+        for( size_t i = 0; i < containers.size(); i++ )
+        {
+            if(!containers[i].color_solved(it->first))
+            {
+                cout << "Kolor " << it->first << " nie rozwiązany w kontenerze " << i + 1<< endl;
+            }
+        }
+    }
+    
+
+    
+    
+    return true;
+//    bool start = check_start_conditions(containers);
+//    if(start)
+//    {
+//        int steps = 0;
+//        int i = (int)containers.size();
+//        i--; // wyrownanie indexow
+//        
+//        map<string,int> colors = get_colors();
+//        
+//        while(!solved())
+//        {
+//            for (map<string,int>::iterator it = colors.begin(); it != colors.end(); ++it)
+//            {
+//                while(!color_solved(it->first))
+//                {
+//                    ++steps;
+//                    //cout << "Krok " << steps << endl;
+//                    i = ( i + 1)% containers.size();
+//                    //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
+//                    if(!check_container(containers[i]))
+//                    {
+//                        move_to_right(containers[i],it->first);
+//                    }
+//                }
+//            }
+//        }
+//        //print_containers();
+//        cout << "Krok " << steps << endl;
+//        return true;
+//    }
+//    else
+//    {
+//        cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
+//        return false;
+//    }
+}
+
 bool NaiveSolver::solve_right_method()
 {
     bool start = check_start_conditions(containers);
