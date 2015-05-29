@@ -163,7 +163,7 @@ Node* Node::get_successor()
     {
         if(compare((*(*it))))
         {
-            if(index == children.size()-1)
+            if(index == (int)children.size()-1)
             {
                 if(parentt->get_successor() == NULL)
                 {

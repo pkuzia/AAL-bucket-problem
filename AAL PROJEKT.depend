@@ -30,9 +30,10 @@
 	"Container.h"
 	<iostream>
 
-1431178685 source:e:\praca\git respositories\aal projekt\main.cpp
+1432935028 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
+	<ctime>
 	"Block.h"
 	"Container.h"
 	<map>
@@ -45,13 +46,13 @@
 	"string"
 	<iostream>
 
-1431004645 e:\praca\git respositories\aal projekt\include\container.h
+1432903366 e:\praca\git respositories\aal projekt\include\container.h
 	"Block.h"
 	"vector"
 	<map>
 	<cstdlib>
 
-1431004645 e:\praca\git respositories\aal projekt\include\naivesolver.h
+1432931895 e:\praca\git respositories\aal projekt\include\naivesolver.h
 	<vector>
 	"Container.h"
 	<iostream>
@@ -60,18 +61,18 @@
 1426275000 source:e:\praca\git respositories\aal projekt\src\block.cpp
 	"Block.h"
 
-1431022301 source:e:\praca\git respositories\aal projekt\src\container.cpp
+1432903366 source:e:\praca\git respositories\aal projekt\src\container.cpp
 	"Container.h"
 
-1431088532 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
+1432933001 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
 	"NaiveSolver.h"
 
-1431168139 source:e:\praca\git respositories\aal projekt\src\creator.cpp
+1432925489 source:e:\praca\git respositories\aal projekt\src\creator.cpp
 	"Creator.h"
 	<cstdlib>
 	<fstream>
 
-1427744540 e:\praca\git respositories\aal projekt\include\creator.h
+1432925167 e:\praca\git respositories\aal projekt\include\creator.h
 	"Container.h"
 	<cstdlib>
 	<fstream>
@@ -87,7 +88,7 @@
 	<Container.h>
 	<vector>
 
-1431178183 source:e:\praca\git respositories\aal projekt\src\node.cpp
+1432925805 source:e:\praca\git respositories\aal projekt\src\node.cpp
 	"Node.h"
 
 1431168398 e:\praca\git respositories\aal projekt\include\node.h
@@ -104,7 +105,7 @@
 	<Containers.h>
 	<Node.h>
 
-1431178866 source:e:\praca\git respositories\aal projekt\src\tree.cpp
+1432934922 source:e:\praca\git respositories\aal projekt\src\tree.cpp
 	"Tree.h"
 
 1431086264 e:\praca\git respositories\aal projekt\include\tree.h

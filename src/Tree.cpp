@@ -13,6 +13,7 @@ void Tree::solve()
 }
 void Tree::build()
 {
+    int level = 0;
     root->build();
     root->delete_duplicates();
     Node* node = root;
@@ -24,13 +25,14 @@ void Tree::build()
     while(1)
     {
         //node = node -> get_successor();
+        level++;
         node = root->get_left();
         int k = 0;
         while(node != NULL)
         {
             if(node->solved())
             {
-                cout << "Poprawne rozwiazanie, KROK: " << i << " Pojemnik nr: " << k << endl;
+                cout << "Poprawne rozwiazanie, KROK: " << i << " Pojemnik nr: " << k << " Poziom drzewa: "<< level << endl;
                 node -> print_node();
                 solved = true;
                 break;

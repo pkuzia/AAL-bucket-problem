@@ -14,11 +14,11 @@ class NaiveSolver
         bool solve_right_method();
         void print_containers();
         bool solve_random_method();
-        bool optimal_method();
+        bool optimal_method(bool logs);
         void build_tree();
-        bool color_method();
+        bool color_method(bool logs);
         map<string,int> get_colors();
-        bool color_solved(string color);    
+        bool color_solved(string color);
     protected:
     private:
         bool check_start_conditions(vector < Container > containers);

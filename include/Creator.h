@@ -19,7 +19,7 @@ class Creator
         map<int, string> get_colors();
         void print_colors();
         vector < Container > get_containers();
-        void average_fill(double value);
+        void average_fill(int number_containers, int size_container, double average_fill, int color_quantity );
     protected:
     private:
         map<int, string> colors;
