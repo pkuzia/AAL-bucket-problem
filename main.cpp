@@ -71,145 +71,157 @@ vector < Container > enter_data()
 int main()
 {
 
-    vector < Container > containers;
-    cout << "Menu " << endl << "Wybierz rodzaj wykonania." << endl;
-    cout << "1. Wprowadzanie danych" << endl;
-    cout << "2. Ustalenie parametrow wejsciowych i obserwacja." << endl;
-    cout << "3. Ustalenie parametrow wejsciowych i pomiar czasu." << endl;
-    int choise;
+//    vector < Container > containers;
+//    cout << "Menu " << endl << "Wybierz rodzaj wykonania." << endl;
+//    cout << "1. Wprowadzanie danych" << endl;
+//    cout << "2. Ustalenie parametrow wejsciowych i obserwacja." << endl;
+//    cout << "3. Ustalenie parametrow wejsciowych i pomiar czasu." << endl;
+//    int choise;
+//
+//    cin >> choise ;
+//
+//    if(choise == 1)
+//    {
+//        containers = enter_data();
+//        NaiveSolver solv(containers);
+//        solv.print_containers();
+//        int ch;
+//        cout << "Rodzaje algorytmow:" << endl;
+//        cout << "1. Algorytm rozwiazywania drzewem." << endl;
+//        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
+//        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
+//        cin >> ch;
+//
+//        if(ch == 1)
+//        {
+//            solv.build_tree();
+//        }
+//        else if(ch == 2)
+//        {
+//            solv.optimal_method(true);
+//        }
+//        else if(ch == 3)
+//        {
+//            solv.color_method(true);
+//        }
+//        else
+//        {
+//            cout << "Error." << endl;
+//        }
+//    }
+//    if(choise == 2)
+//    {
+//        int color_quantity;
+//        double average_fill;
+//        int number_of_containers;
+//        int size_container;
+//
+//        cout << "Podaj ilosc kolorow." << endl;
+//        cin >> color_quantity;
+//        cout << "Podaj srednie wypelnienie." << endl;
+//        cin >> average_fill;
+//        cout << "Podaj liczbe pojemnikow." << endl;
+//        cin >> number_of_containers;
+//        cout << "Podaj maksymalna pojemnosc pojemnika." << endl;
+//        cin >> size_container;
+//
+//        Creator creator;
+//        creator.read_file();
+//        creator.average_fill(number_of_containers,size_container,average_fill,color_quantity);
+//        containers = creator.get_containers();
+//
+//        NaiveSolver solv(containers);
+//        int ch;
+//        cout << "Rodzaje algorytmow:" << endl;
+//        cout << "1. Algorytm rozwiazywania drzewem." << endl;
+//        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
+//        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
+//        cin >> ch;
+//
+//        if(ch == 1)
+//        {
+//            solv.build_tree();
+//        }
+//        else if(ch == 2)
+//        {
+//            solv.optimal_method(true);
+//        }
+//        else if(ch == 3)
+//        {
+//            solv.color_method(true);
+//        }
+//        else
+//        {
+//            cout << "Error." << endl;
+//        }
+//    }
+//    if(choise == 3)
+//    {
+//        int color_quantity;
+//        double average_fill;
+//        int number_of_containers;
+//        int size_container;
+//
+//        cout << "Podaj ilosc kolorow." << endl;
+//        cin >> color_quantity;
+//        cout << "Podaj srednie wypelnienie." << endl;
+//        cin >> average_fill;
+//        cout << "Podaj liczbe pojemnikow." << endl;
+//        cin >> number_of_containers;
+//        cout << "Podaj maksymalna pojemnosc pojemnika." << endl;
+//        cin >> size_container;
+//
+//        Creator creator;
+//        creator.read_file();
+//        creator.average_fill(number_of_containers,size_container,average_fill,color_quantity);
+//        containers = creator.get_containers();
+//
+//        NaiveSolver solv(containers);
+//        int ch;
+//        cout << "Rodzaje algorytmow:" << endl;
+//        cout << "1. Algorytm rozwiazywania drzewem." << endl;
+//        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
+//        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
+//        cin >> ch;
+//
+//        if(ch == 1)
+//        {
+//            clock_t time = clock();
+//            solv.build_tree();
+//            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
+//            cout<<"Czas trwania: " << duration << " sek" << endl;
+//        }
+//        else if(ch == 2)
+//        {
+//            clock_t time = clock();
+//            solv.optimal_method(false);
+//            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
+//            cout<<"Czas trwania: " << duration << " sek" << endl;
+//        }
+//        else if(ch == 3)
+//        {
+//            clock_t time = clock();
+//            solv.color_method(false);
+//            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
+//            cout<<"Czas trwania: " << duration << " sek" << endl;
+//        }
+//        else
+//        {
+//            cout << "Error." << endl;
+//        }
+//    }
 
-    cin >> choise ;
-
-    if(choise == 1)
-    {
-        containers = enter_data();
-        NaiveSolver solv(containers);
-        solv.print_containers();
-        int ch;
-        cout << "Rodzaje algorytmow:" << endl;
-        cout << "1. Algorytm rozwiazywania drzewem." << endl;
-        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
-        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
-        cin >> ch;
-
-        if(ch == 1)
-        {
-            solv.build_tree();
-        }
-        else if(ch == 2)
-        {
-            solv.optimal_method(true);
-        }
-        else if(ch == 3)
-        {
-            solv.color_method(true);
-        }
-        else
-        {
-            cout << "Error." << endl;
-        }
-    }
-    if(choise == 2)
-    {
-        int color_quantity;
-        double average_fill;
-        int number_of_containers;
-        int size_container;
-
-        cout << "Podaj ilosc kolorow." << endl;
-        cin >> color_quantity;
-        cout << "Podaj srednie wypelnienie." << endl;
-        cin >> average_fill;
-        cout << "Podaj liczbe pojemnikow." << endl;
-        cin >> number_of_containers;
-        cout << "Podaj maksymalna pojemnosc pojemnika." << endl;
-        cin >> size_container;
-
+        vector < Container > containers;
         Creator creator;
         creator.read_file();
-        creator.average_fill(number_of_containers,size_container,average_fill,color_quantity);
+        creator.average_fill(3,13,0.70,20);
         containers = creator.get_containers();
-
         NaiveSolver solv(containers);
-        int ch;
-        cout << "Rodzaje algorytmow:" << endl;
-        cout << "1. Algorytm rozwiazywania drzewem." << endl;
-        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
-        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
-        cin >> ch;
+        clock_t time = clock();
+        solv.build_tree();
+        double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
+        cout<<"Czas trwania: " << duration << " sek" << endl;
 
-        if(ch == 1)
-        {
-            solv.build_tree();
-        }
-        else if(ch == 2)
-        {
-            solv.optimal_method(true);
-        }
-        else if(ch == 3)
-        {
-            solv.color_method(true);
-        }
-        else
-        {
-            cout << "Error." << endl;
-        }
-    }
-    if(choise == 3)
-    {
-        int color_quantity;
-        double average_fill;
-        int number_of_containers;
-        int size_container;
-
-        cout << "Podaj ilosc kolorow." << endl;
-        cin >> color_quantity;
-        cout << "Podaj srednie wypelnienie." << endl;
-        cin >> average_fill;
-        cout << "Podaj liczbe pojemnikow." << endl;
-        cin >> number_of_containers;
-        cout << "Podaj maksymalna pojemnosc pojemnika." << endl;
-        cin >> size_container;
-
-        Creator creator;
-        creator.read_file();
-        creator.average_fill(number_of_containers,size_container,average_fill,color_quantity);
-        containers = creator.get_containers();
-
-        NaiveSolver solv(containers);
-        int ch;
-        cout << "Rodzaje algorytmow:" << endl;
-        cout << "1. Algorytm rozwiazywania drzewem." << endl;
-        cout << "2. Alborytm rozwiazywania pojemnikami." << endl;
-        cout << "3. Algorytm rozwiazywania kolorami. " << endl;
-        cin >> ch;
-
-        if(ch == 1)
-        {
-            clock_t time = clock();
-            solv.build_tree();
-            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
-            cout<<"Czas trwania: " << duration << " sek" << endl;
-        }
-        else if(ch == 2)
-        {
-            clock_t time = clock();
-            solv.optimal_method(false);
-            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
-            cout<<"Czas trwania: " << duration << " sek" << endl;
-        }
-        else if(ch == 3)
-        {
-            clock_t time = clock();
-            solv.color_method(false);
-            double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
-            cout<<"Czas trwania: " << duration << " sek" << endl;
-        }
-        else
-        {
-            cout << "Error." << endl;
-        }
-    }
 
     return 0;
 }

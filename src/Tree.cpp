@@ -26,6 +26,7 @@ void Tree::build()
     {
         //node = node -> get_successor();
         level++;
+        cout << "Poziom : " << level << endl;
         node = root->get_left();
         int k = 0;
         while(node != NULL)
@@ -37,7 +38,7 @@ void Tree::build()
                 solved = true;
                 break;
             }
-            cout <<"SPRAWDZAM " <<k << endl; k++;
+           // cout <<"SPRAWDZAM " <<k << endl; k++;
             node = node->get_successor();
         }
         if(solved)
