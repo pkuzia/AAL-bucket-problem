@@ -11,7 +11,7 @@ Creator::~Creator()
 {
     //dtor
 }
-
+/* Funckja czytajaca plik tekstowy z kolorami.*/
 void Creator::read_file()
 {
   string line;
@@ -31,44 +31,9 @@ void Creator::read_file()
   else cout << "Unable to open file";
 }
 
-
-void Creator::random ()
-{
-    int number_containers = 100;//rand()%100;
-    cout << "Liczba kontenerow :" << number_containers << endl;
-
-    int number_blocks = 800;//rand()%100+50;
-    //cout << "Liczba blokow :" << numer_blocks << endl;
-
-    for(int i = 1; i<= number_containers ; i++)
-    {
-        int size_container = number_blocks/number_containers + rand()%3 + 1; //rand()%20 + 1;
-        Container container(size_container,i);
-        containers.push_back(container);
-        //cout << "Pojemnosc konternera " << i << " : " <<  size_container << endl;
-    }
-
-    for(int i = 1; i<= number_blocks ; i++)
-    {
-        int color_id = rand()%10;
-
-        Block block(colors.find(color_id)->second);
-        //cout << "Blok " << i << " ma kolor " << block.get_color() << endl;
-        int nr_container = rand()% number_containers;
-        //cout << "Wylosowany kontener to :" << nr_container << endl;
-
-        while(!containers[nr_container].free_slot())
-        {
-            nr_container = rand()% number_containers;
-        }
-        containers[nr_container].add_block(block);
-    }
-}
-
+/* Funckja tworz¹ca problem do rozwi¹zania o zadanych parametrach tj. liczba pojemników, maksymalna pojemnosc pojemnika, srednie wypelnienie oraz liczbe kolorow.*/
 void Creator::average_fill(int number_containers, int size_cont, double average_fill, int color_quantity )
 {
-    //cout << "Liczba kontenerow :" << number_containers << endl;
-
     for(int i = 1; i<= number_containers ; i++)
     {
         int size_container = rand()%size_cont + 1;
@@ -77,9 +42,7 @@ void Creator::average_fill(int number_containers, int size_cont, double average_
 
         while(((double)containers[i-1].get_number_of_blocks() / (double)containers[i-1].get_size()) < average_fill )
         {
-            //cout << (double)containers[i-1].get_number_of_blocks()/(double)containers[i-1].get_size() << " :: " << value << endl ;
             int color_id = rand()%color_quantity;
-            //cout << colors.find(color_id)->second << endl;
             Block block(colors.find(color_id)->second);
             containers[i-1].add_block(block);
         }

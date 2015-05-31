@@ -135,7 +135,7 @@ bool Container::color_solved(string color)
     }
     return false;
 }
-
+/* Funkcja porównuj¹ca dwa kontenery.*/
 bool Container::compare(Container &cont)
 {
     if(get_number_of_blocks() != cont.get_number_of_blocks())
@@ -157,12 +157,9 @@ bool Container::compare(Container &cont)
                 {
                     return false;
                 }
-
-                //cout << "Porownuje " << color << " z " << iter -> first << endl;
                 if(color == iter -> first )
                 {
                     is_color_exist = true;
-                    //cout << "Porownuje wartosci " << it->second << " z " << iter->second << endl;
                     if(it->second != iter->second)
                     {
                         return false;

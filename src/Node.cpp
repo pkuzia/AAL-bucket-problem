@@ -6,10 +6,9 @@ Node::Node(vector <Container> cont, Node* previous)
     parent = previous;
 
 }
+/* Funkcja budująca wszystkie mozliwe ruchu z obecnej sytuacji.*/
 void Node::build()
 {
-    //cout << "Build " << endl;
-    int l = 0;
     for(size_t i = 0; i< containers.size(); i++)
     {
         vector < Block > blocks = containers[i].get_blocks();
@@ -41,8 +40,6 @@ void Node::build()
                 newContainers[i].delete_block(j);
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
-                l++;
-                //cout << "Dodaje sytuacje nr " << l << endl;
             }
             newContainers = containers;
             if(newContainers[index_right].free_slot())
@@ -53,8 +50,6 @@ void Node::build()
                 newContainers[i].delete_block(j);
                 Node* node = new Node(newContainers,this);
                 nodes.push_back(node);
-                l++;
-                //cout << "Dodaje sytuacje nr " << l << endl;
             }
         }
     }
@@ -88,7 +83,7 @@ vector < Container > Node::get_containers()
 {
     return containers;
 }
-
+/* Funckja porównująca dwa węzły drzewa.*/
 bool Node::compare(Node & node)
 {
     vector <Container> container_two;
@@ -102,7 +97,8 @@ bool Node::compare(Node & node)
     }
     return true;
 }
-void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
+/* Funckja usująca duplikaty w swojej tablicy gałęzi, zakładamy że one istnieją*/
+void Node::delete_duplicates()
 {
     int i = 0;
     vector <int> nodes_to_delete;
@@ -113,12 +109,10 @@ void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
          {
              if((*it)->compare(*(*iter)) && i != j)
              {
-                //cout << i << " i " << j << " takie same." << endl;
                 if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), j) == nodes_to_delete.end())
                 {
-                    if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), i) ==nodes_to_delete.end())
+                    if(std::find(nodes_to_delete.begin(), nodes_to_delete.end(), i) == nodes_to_delete.end())
                     {
-                        //cout << "Push " << j << endl;
                         nodes_to_delete.push_back(j);
                     }
                 }
@@ -130,7 +124,6 @@ void Node::delete_duplicates() // zak³adamy, ¿e musi posiadac ju¿ ga³ezie.
     sort(nodes_to_delete.begin(), nodes_to_delete.end(), std::greater<int>());
     for(vector<int>::iterator it = nodes_to_delete.begin(); it != nodes_to_delete.end(); ++it)
     {
-        //cout << "Usuwam " << *it << endl;
         nodes.erase (nodes.begin()+(*it) );
     }
 }
@@ -150,6 +143,8 @@ Node* Node::get_left()
     return node;
 
 }
+
+/* Funckja zwracająca następnik w drzewie.*/
 Node* Node::get_successor()
 {
     Node * parentt = parent;
@@ -178,16 +173,6 @@ Node* Node::get_successor()
     return NULL; // macbook
 }
 
-void Node::build_level()
-{
-    for(vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
-    {
-        //cout << "build" << endl;
-        (*it)->build();
-        (*it)->delete_duplicates();
-        (*it)->check_history();
-    }
-}
 Node * Node::get_parent()
 {
     return parent;

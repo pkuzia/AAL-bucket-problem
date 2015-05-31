@@ -4,27 +4,17 @@ Tree::Tree(vector <Container> cont)
 {
     root = new Node(cont, NULL);
 }
-void Tree::solve()
-{
-    while(1)
-    {
-
-    }
-}
+/* Funkcja buduj¹ca drzewo oraz szukaj¹ca rozwi¹zania.*/
 void Tree::build()
 {
     int level = 0;
     root->build();
     root->delete_duplicates();
     Node* node = root;
-    //cout << "-----------------------" << endl;
-    //node->build_level();
-    //node = node->get_left();
     int i = 0;
     bool solved = false;
-    while(1)
+    while(true)
     {
-        //node = node -> get_successor();
         level++;
         cout << "Poziom : " << level << endl;
         node = root->get_left();
@@ -38,7 +28,6 @@ void Tree::build()
                 solved = true;
                 break;
             }
-           // cout <<"SPRAWDZAM " <<k << endl; k++;
             node = node->get_successor();
         }
         if(solved)
@@ -52,11 +41,8 @@ void Tree::build()
             node->build();
             node->delete_duplicates();
             node->check_history();
-            //cout <<"P2 " << k << endl; k++;
             node = node->get_successor();
         }
-        //cout << i << endl;
         ++i;
     }
-    //node->print_node();
 }

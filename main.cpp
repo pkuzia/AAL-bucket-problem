@@ -214,11 +214,11 @@ int main()
         vector < Container > containers;
         Creator creator;
         creator.read_file();
-        creator.average_fill(3,13,0.70,20);
+        creator.average_fill(1000,20,0.65,100);
         containers = creator.get_containers();
         NaiveSolver solv(containers);
         clock_t time = clock();
-        solv.build_tree();
+        solv.color_method(false);
         double duration = ( clock() - time ) / (double) CLOCKS_PER_SEC;
         cout<<"Czas trwania: " << duration << " sek" << endl;
 

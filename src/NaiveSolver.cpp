@@ -10,6 +10,8 @@ NaiveSolver::~NaiveSolver()
 {
     //dtor
 }
+
+/* Funkcja sprawdzaja warunek u³o¿ena */
 bool NaiveSolver::check_start_conditions(vector < Container > containers)
 {
     map<string,int> all_colors;
@@ -76,7 +78,7 @@ bool NaiveSolver::check_container(Container &container)
 {
     return container.accept();
 }
-
+/* Funckja zwracaja mape wszystkich kolorów w pojemnikach */
 map<string,int> NaiveSolver::get_colors()
 {
     map<string,int> all_colors;
@@ -113,6 +115,7 @@ bool NaiveSolver::color_solved(string color)
     return true;
 }
 
+/* Algorytm rozwiazywanie problem uk³adac klocki po kolorach.*/
 bool NaiveSolver::color_method(bool logs)
 {
     bool start = check_start_conditions(containers);
@@ -128,17 +131,12 @@ bool NaiveSolver::color_method(bool logs)
         {
             for (map<string,int>::iterator it = colors.begin(); it != colors.end(); ++it)
             {
-               // cout << "Sprawdzam kolor " << it->first << endl;
                 while(!color_solved(it->first))
                 {
                     ++steps;
-                    //cout << "Krok " << steps << endl;
                     i = ( i + 1)% containers.size();
-                    //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
-                    //containers[i].print_map();
                     if(!containers[i].color_solved(it->first))
                     {
-
                         move_to_right(containers[i],it->first);
                     }
                 }
@@ -158,40 +156,7 @@ bool NaiveSolver::color_method(bool logs)
     }
 }
 
-bool NaiveSolver::solve_right_method()
-{
-    bool start = check_start_conditions(containers);
-    if(start)
-    {
-        int steps = 0;
-        int i = (int)containers.size();
-        i--; // wyrownanie indexow
-
-        while(!solved())
-        {
-            ++steps;
-            //cout << "Krok " << steps << endl;
-            i = ( i + 1)% containers.size();
-            //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
-            if(!check_container(containers[i]))
-            {
-                 move_to_right(containers[i],containers[i].get_unnecessary_color());
-            }
-            //print_containers();
-        }
-      //print_containers();
-      cout << "Krok " << steps << endl;
-      return true;
-    }
-    else
-    {
-        cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
-        return false;
-    }
-
-}
-
-
+/* Algorytm rozwiazywanie problem uk³adac klocki przechac po kazdym pojemniku. */
 bool NaiveSolver::optimal_method(bool logs)
 {
     bool start = check_start_conditions(containers);
@@ -204,9 +169,7 @@ bool NaiveSolver::optimal_method(bool logs)
         while(!solved())
         {
             ++steps;
-            //cout << "Krok " << steps << endl;
             i = ( i + 1)% containers.size();
-            //cout << "Sprawdzam pojemnik o indexie " << i <<endl;
 
             if(!check_container(containers[i]))
             {
@@ -236,7 +199,6 @@ bool NaiveSolver::optimal_method(bool logs)
             }
         }
         cout << "Krok " << steps << endl;
-        //print_containers();
         return true;
     }
     else
@@ -246,6 +208,7 @@ bool NaiveSolver::optimal_method(bool logs)
     }
 
 }
+/* Funkcja przenosz¹ca klocek z zadanego pojemnika i o zadanym kolorze w prawo.*/
 void NaiveSolver::move_to_right(Container &container,string color) // Kontener z ktorego chcemy przeniesc na prawo
 {
     int index_block = container.get_block_of_color(color);
@@ -254,7 +217,6 @@ void NaiveSolver::move_to_right(Container &container,string color) // Kontener z
     {
         index_next_container++;     // zgranie indexow
     }
-        //cout<<" FUNKCJA MOVE : Przenosze " << color << " z pojemnika : " << container.get_index() << " do : " << index_next_container << endl;
     if(containers[index_next_container - 1].get_size() == containers[index_next_container - 1].get_number_of_blocks())
     {
         if(containers[index_next_container - 1].get_block_of_color(color) == 999)
@@ -269,10 +231,9 @@ void NaiveSolver::move_to_right(Container &container,string color) // Kontener z
     container.delete_block(index_block);
     Block newBlock(color);
     containers[index_next_container - 1].add_block(newBlock);
-    //print_containers();
 }
 
-
+/* Funkcja przenosz¹ca klocek z zadanego pojemnika i o zadanym kolorze w lewo.*/
 void NaiveSolver::move_to_left(Container &container,string color) // Kontener z ktorego chcemy przeniesc na lewo
 {
     int index_block = container.get_block_of_color(color);
@@ -285,7 +246,6 @@ void NaiveSolver::move_to_left(Container &container,string color) // Kontener z 
     {
         index_previous_container++;     // zgranie indexow
     }
-    //cout<<" FUNKCJA MOVE : Przenosze " << color << " z pojemnika : " << container.get_index() << " do : " << index_previous_container << endl;
     if(containers[index_previous_container - 1].get_size() == containers[index_previous_container - 1].get_number_of_blocks())
     {
         if(containers[index_previous_container - 1].get_block_of_color(color) == 999)
@@ -300,60 +260,11 @@ void NaiveSolver::move_to_left(Container &container,string color) // Kontener z 
     container.delete_block(index_block);
     Block newBlock(color);
     containers[index_previous_container - 1].add_block(newBlock);
-    //print_containers();
 }
 
-
-void NaiveSolver::random_move(Container &container) // losowy klocek z podaneo kontenera wyrzucamy na lewo lub na prawo
-{
-    string random_color = container.get_random_color();
-    //cout << " Wylosowany kolor to : " << random_color << endl;
-    int left_or_right = rand() % 2;
-
-    if(left_or_right == 1 )
-    {
-        move_to_right(container, random_color);
-    }
-    else
-    {
-        move_to_left(container, random_color);
-    }
-}
-
+/* Funkcja budujaca drzewo rozwiazan, i szukaj¹ca go.*/
 void NaiveSolver::build_tree()
 {
     Tree tree(containers);
     tree.build();
-    //tree.solve();
-}
-
-bool NaiveSolver::solve_random_method()
-{
-    bool start = check_start_conditions(containers);
-    if(start)
-    {
-        int steps = 0;
-        int i = (int)containers.size();
-        i--; // wyrownanie indexow
-
-        while(!solved())
-        {
-            ++steps;
-            cout << "Krok " << steps << endl;
-            i = ( i + 1)% containers.size();
-            cout << "Sprawdzam pojemnik o indexie " << i <<endl;
-            if(!check_container(containers[i]))
-            {
-                random_move(containers[i]);
-            }
-        }
-        //print_containers();
-        return true;
-    }
-    else
-    {
-        cout << "Problem nie do rozwiazania - niepoprawne warunku poczatkowe" << endl;
-        return false;
-    }
-
 }

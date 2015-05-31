@@ -16,7 +16,6 @@ class Node
         vector < Container > get_containers();
         void delete_duplicates();
         void check_history();
-        void build_level();
         Node * get_parent();
         Node* get_successor();
         vector < Node* > get_nodes();
