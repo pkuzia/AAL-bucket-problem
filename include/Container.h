@@ -1,7 +1,7 @@
 //-------------------------------
 /*  Politechnika Warszawska WEiTI
-    Przemys≥aw Kuzia ISI
-    Projekt z Analizy AlgorytmÛw
+    Przemys≈Çaw Kuzia ISI
+    Projekt z Analizy Algorytm√≥w
     Pojemniki i klocki
 *///----------------------------
 #ifndef CONTAINER_H
