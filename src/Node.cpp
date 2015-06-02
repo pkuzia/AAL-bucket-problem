@@ -7,6 +7,12 @@ Node::Node(vector <Container> cont, Node* previous)
 
 }
 /* Funkcja budująca wszystkie mozliwe ruchu z obecnej sytuacji.*/
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemysław Kuzia ISI
+    Projekt z Analizy Algorytmów
+    Pojemniki i klocki
+*///----------------------------
 void Node::build()
 {
     for(size_t i = 0; i< containers.size(); i++)

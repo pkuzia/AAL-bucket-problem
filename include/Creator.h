@@ -1,3 +1,9 @@
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemys³aw Kuzia ISI
+    Projekt z Analizy Algorytmów
+    Pojemniki i klocki
+*///----------------------------
 #ifndef CREATOR_H
 #define CREATOR_H
 

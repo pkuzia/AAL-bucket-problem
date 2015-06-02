@@ -1,3 +1,9 @@
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemysław Kuzia ISI
+    Projekt z Analizy Algorytmów
+    Pojemniki i klocki
+*///----------------------------
 #include "NaiveSolver.h"
 using namespace std;
 
@@ -11,7 +17,7 @@ NaiveSolver::~NaiveSolver()
     //dtor
 }
 
-/* Funkcja sprawdzaja warunek u�o�ena */
+/* Funkcja sprawdzaja warunek ułożena */
 bool NaiveSolver::check_start_conditions(vector < Container > containers)
 {
     map<string,int> all_colors;
@@ -78,7 +84,7 @@ bool NaiveSolver::check_container(Container &container)
 {
     return container.accept();
 }
-/* Funckja zwracaja mape wszystkich kolor�w w pojemnikach */
+/* Funckja zwracaja mape wszystkich kolorów w pojemnikach */
 map<string,int> NaiveSolver::get_colors()
 {
     map<string,int> all_colors;
@@ -115,7 +121,7 @@ bool NaiveSolver::color_solved(string color)
     return true;
 }
 
-/* Algorytm rozwiazywanie problem uk�adac klocki po kolorach.*/
+/* Algorytm rozwiazywanie problem uk³adac klocki po kolorach.*/
 bool NaiveSolver::color_method(bool logs)
 {
     bool start = check_start_conditions(containers);
@@ -156,7 +162,7 @@ bool NaiveSolver::color_method(bool logs)
     }
 }
 
-/* Algorytm rozwiazywanie problem uk�adac klocki przechac po kazdym pojemniku. */
+/* Algorytm rozwiazywanie problem uk³adac klocki przechac po kazdym pojemniku. */
 bool NaiveSolver::optimal_method(bool logs)
 {
     bool start = check_start_conditions(containers);
@@ -208,7 +214,7 @@ bool NaiveSolver::optimal_method(bool logs)
     }
 
 }
-/* Funkcja przenosz�ca klocek z zadanego pojemnika i o zadanym kolorze w prawo.*/
+/* Funkcja przenosz¹ca klocek z zadanego pojemnika i o zadanym kolorze w prawo.*/
 void NaiveSolver::move_to_right(Container &container,string color) // Kontener z ktorego chcemy przeniesc na prawo
 {
     int index_block = container.get_block_of_color(color);
@@ -233,7 +239,7 @@ void NaiveSolver::move_to_right(Container &container,string color) // Kontener z
     containers[index_next_container - 1].add_block(newBlock);
 }
 
-/* Funkcja przenosz�ca klocek z zadanego pojemnika i o zadanym kolorze w lewo.*/
+/* Funkcja przenosz¹ca klocek z zadanego pojemnika i o zadanym kolorze w lewo.*/
 void NaiveSolver::move_to_left(Container &container,string color) // Kontener z ktorego chcemy przeniesc na lewo
 {
     int index_block = container.get_block_of_color(color);
@@ -262,7 +268,7 @@ void NaiveSolver::move_to_left(Container &container,string color) // Kontener z 
     containers[index_previous_container - 1].add_block(newBlock);
 }
 
-/* Funkcja budujaca drzewo rozwiazan, i szukaj�ca go.*/
+/* Funkcja budujaca drzewo rozwiazan, i szukaj¹ca go.*/
 void NaiveSolver::build_tree()
 {
     Tree tree(containers);

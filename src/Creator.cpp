@@ -1,3 +1,9 @@
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemys≈Çaw Kuzia ISI
+    Projekt z Analizy Algorytm√≥w
+    Pojemniki i klocki
+*///----------------------------
 #include "Creator.h"
 #include <cstdlib>
 #include <fstream>
@@ -31,7 +37,7 @@ void Creator::read_file()
   else cout << "Unable to open file";
 }
 
-/* Funckja tworzπca problem do rozwiπzania o zadanych parametrach tj. liczba pojemnikÛw, maksymalna pojemnosc pojemnika, srednie wypelnienie oraz liczbe kolorow.*/
+/* Funckja tworz¬πca problem do rozwi¬πzania o zadanych parametrach tj. liczba pojemnik√≥w, maksymalna pojemnosc pojemnika, srednie wypelnienie oraz liczbe kolorow.*/
 void Creator::average_fill(int number_containers, int size_cont, double average_fill, int color_quantity )
 {
     for(int i = 1; i<= number_containers ; i++)

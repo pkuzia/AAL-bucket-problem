@@ -1,3 +1,9 @@
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemysław Kuzia ISI
+    Projekt z Analizy Algorytmów
+    Pojemniki i klocki
+*///----------------------------
 #include "Container.h"
 
 Container::Container(int siz, int idx)
@@ -135,7 +141,7 @@ bool Container::color_solved(string color)
     }
     return false;
 }
-/* Funkcja por�wnuj�ca dwa kontenery.*/
+/* Funkcja porównuj¹ca dwa kontenery.*/
 bool Container::compare(Container &cont)
 {
     if(get_number_of_blocks() != cont.get_number_of_blocks())

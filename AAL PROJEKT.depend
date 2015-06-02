@@ -30,7 +30,7 @@
 	"Container.h"
 	<iostream>
 
-1432998725 source:e:\praca\git respositories\aal projekt\main.cpp
+1433235101 source:e:\praca\git respositories\aal projekt\main.cpp
 	<iostream>
 	<stdlib.h>
 	<ctime>
@@ -64,7 +64,7 @@
 1432997832 source:e:\praca\git respositories\aal projekt\src\container.cpp
 	"Container.h"
 
-1432997375 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
+1433010658 source:e:\praca\git respositories\aal projekt\src\naivesolver.cpp
 	"NaiveSolver.h"
 
 1432997568 source:e:\praca\git respositories\aal projekt\src\creator.cpp

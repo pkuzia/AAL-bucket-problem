@@ -39,7 +39,6 @@
 		<Unit filename="include/Creator.h" />
 		<Unit filename="include/NaiveSolver.h" />
 		<Unit filename="include/Node.h" />
-		<Unit filename="include/Root.h" />
 		<Unit filename="include/Tree.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Block.cpp" />

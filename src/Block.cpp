@@ -1,3 +1,9 @@
+//-------------------------------
+/*  Politechnika Warszawska WEiTI
+    Przemysław Kuzia ISI
+    Projekt z Analizy Algorytmów
+    Pojemniki i klocki
+*///----------------------------
 #include "Block.h"
 using namespace std;
 
